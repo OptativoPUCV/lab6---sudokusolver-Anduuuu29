@@ -44,8 +44,45 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
-   
+   //validar filas
+   int nodo[9] = {0};
+   for(int i = 0; i < 9; i++)
+      {
+         for(int j = 0; j < 9; j++){
+            int num = n->sudo[i][j];
+            if(num != 0){
+               if(nodo[num] == 0) return 0;
+                  nodo[num] = 1;
+            }
+         }
+      }
+   //validar columnas
+   for(int j = 0; j < 9; j++)
+      {
+         for(int i = 0; i < 9; i++)
+         {
+            int num = n->sudo[i][j];
+            if(num != 0){
+               if(nodo[num]) return 0;
+               nodo[num] = 1;
+            }
+         }
+      }
+   //validar submatrices
+   for(int k = 0; k < 9; k++)
+      {
+         for(int i = 0; i < 9; i++) nodo[i] = 0;
+         for(int j = 0; j < 9; j++){
+            int fila = 3 * (k/3) + (j/3);
+            int col = 3 * (k/3) + (j%3);
+            int num = n->sudo[fila][col];
+            if(num != 0){
+               if(nodo[num]) return 0;
+               nodo[num] = 1;
+            }
+         }
+      }
+      
     return 1;
 }
 
