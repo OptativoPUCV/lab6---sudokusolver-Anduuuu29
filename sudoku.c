@@ -98,23 +98,18 @@ List* get_adj_nodes(Node* n){
    List* list_adj=createList();
    int i,j; char new_move;
    for(i=0;i<9;i++)
-      for(j=0;j<9;j++)
-         {
-            if(n->sudo[i][j]==0)
-            {
-               for(new_move=1;new_move<10;new_move++)
-                  {
-                     n->sudo[i][j]=new_move;
-                     if(is_valid(n))
-                     {
-                        Node* adj_node=copy(n);
-                        pushBack(list_adj,adj_node);
-                     }
-                     n->sudo[i][j]=0;
-                  }
+      for(j=0;j<9;j++){
+         if(n->sudo[i][j]==0){
+            for(new_move=1;new_move<10;new_move++){
+               Node* new_node=copy(n);
+               new_node->sudo[i][j]=new_move;
+               if(is_valid(new_node)){
+                  pushBack(list_adj,new_node);
+               }
             }
          }
-    return list_adj;
+      }
+   return list_adj;
 }
 
 
