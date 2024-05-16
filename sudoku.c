@@ -72,6 +72,24 @@ int is_valid(Node* n){
          }
       }
    }
+   //validar submatrices
+   for(int i = 0; i < 9; i+=3){
+      for(int j = 0; j < 9; j+=3){
+         int aux[10] = {0};
+         for(int k = 0; k < 3; k++){
+            for(int l = 0; l < 3; l++){
+               int num = n->sudo[i+k][j+l];
+               if(num != 0){
+                  if(aux[num])
+                  {
+                     return 0;
+                  }
+                  aux[num] = 1;
+               }
+            }
+         }
+      }
+   }
     return 1;
 }
 
