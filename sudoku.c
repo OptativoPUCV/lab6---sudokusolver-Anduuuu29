@@ -44,7 +44,20 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   
+   //validar filas
+   for(int i = 0; i < 9; i++){
+      int aux[10] = {0};
+      for(int j=0; j < 9; j++){
+         int num = n->sudo[i][j];
+         if(num != 0){
+            if(aux[num])
+            {
+               return 0;
+            }
+            aux[num] = 1;
+         }
+      }
+   }
     return 1;
 }
 
