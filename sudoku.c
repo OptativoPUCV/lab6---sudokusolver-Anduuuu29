@@ -61,10 +61,12 @@ List* get_adj_nodes(Node* n){
                   {
                      n->sudo[i][j]=new_move;
                      if(is_valid(n))
-                        pushBack(list_adj,n);
+                     {
+                        Node* adj_node=copy(n);
+                        pushBack(list_adj,adj_node);
+                     }
                      n->sudo[i][j]=0;
                   }
-               
             }
          }
     return list_adj;
