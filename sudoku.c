@@ -50,10 +50,24 @@ int is_valid(Node* n){
 
 
 List* get_adj_nodes(Node* n){
-    List* list=createList();
-      
-   
-    return list;
+   List* list_adj=createList();
+   int i,j; char new_move;
+   for(i=0;i<9;i++)
+      for(j=0;j<9;j++)
+         {
+            if(n->sudo[i][j]==0)
+            {
+               for(new_move=1;new_move<10;new_move++)
+                  {
+                     n->sudo[i][j]=new_move;
+                     if(is_valid(n))
+                        pushBack(list_adj,n);
+                     n->sudo[i][j]=0;
+                  }
+               
+            }
+         }
+    return list_adj;
 }
 
 
