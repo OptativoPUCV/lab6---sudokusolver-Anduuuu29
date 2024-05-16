@@ -44,7 +44,20 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-
+   int k=0,p;
+   for(p=0;p<9;p++){
+      int i=3*(k/3) + (k%3);
+      int j=3*(k%3) + (k/3);
+      int aux[9]={0};
+      for(k=0;k<9;k++)
+         {
+            if(n->sudo[i][j]==0) continue;
+            if(aux[n->sudo[i][j]-1]==1) return 0;
+            aux[n->sudo[i][j]-1]=1;
+         }
+         
+      }
+   
     return 1;
 }
 
@@ -74,6 +87,7 @@ List* get_adj_nodes(Node* n){
 
 
 int is_final(Node* n){
+   
     return 0;
 }
 
