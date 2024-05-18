@@ -163,3 +163,8 @@ sudoku.c:139:5: note: previous definition of ‘main’ with type ‘int(int,  c
       |     ^~~~
 Compilation failed
 670e093
+Sat 18 May 2024 11:07:04 PM UTC: 
+ sudoku.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  0|0
+26139bb
