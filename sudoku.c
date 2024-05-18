@@ -120,12 +120,29 @@ int is_final(Node* n){
             return 0;
          }
       }
-      
    }
    return 1;
 }
 
 Node* DFS(Node* initial, int* cont){
+   Stack* S=createStack();
+   push(S,initial);
+   while(get_size(S)!=0){
+      Node* n=top(S);
+      pop(S);
+      if(is_final(n)){
+         return n;
+      }
+      List* list_adj=get_adj_nodes(n);
+      Node* aux=first(list_adj);
+      while(aux)
+         {
+            push(S,aux);
+            aux=next(list_adj);
+         }
+      free(n);
+   }
+   
   return NULL;
 }
 
