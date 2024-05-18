@@ -72,25 +72,22 @@ int is_valid(Node* n){
          }
       }
    }
-   //validar submatrices
-   for(int i = 0; i < 9; i+=3){
-      for(int j = 0; j < 9; j+=3){
-         int aux[10] = {0};
-         for(int k = 0; k < 3; k++){
-            for(int l = 0; l < 3; l++){
-               int num = n->sudo[i+k][j+l];
-               if(num != 0){
-                  if(aux[num])
-                  {
-                     return 0;
-                  }
-                  aux[num] = 1;
-               }
+   int k = 0;
+   while (k < 9){
+      int* box = (int*) calloc (10, sizeof(int));
+      for (int i = 0; i < 9; i++){
+         int x = 3* (k/3) + (i/3);
+         int y = 3* (k%3) + (i%3);
+         if (n->sudo[x][y] != 0){
+            if (box[n->sudo[x][y]] == 1){
+               return 0;
             }
+            box[n->sudo[x][y]] = 1;
          }
       }
+      k++;
    }
-    return 1;
+   return 1;
 }
 
 

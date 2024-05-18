@@ -89,3 +89,13 @@ sudoku.c:131:16: error: void value not ignored as it ought to be
       |                ^~~
 Compilation failed
 3210949
+Sat 18 May 2024 10:24:24 PM UTC: 
+ sudoku.c | 23 ++++++++++-------------
+ 1 file changed, 10 insertions(+), 13 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:128:16: error: void value not ignored as it ought to be
+  128 |       Node* n= pop(S);
+      |                ^~~
+Compilation failed
+042f5c3
