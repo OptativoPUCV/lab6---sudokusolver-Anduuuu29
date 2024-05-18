@@ -44,31 +44,21 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-   //validar filas
-   for(int i = 0; i < 9; i++){
-      int aux[10] = {0};
-      for(int j=0; j < 9; j++){
-         int num = n->sudo[i][j];
-         if(num != 0){
-            if(aux[num])
-            {
+   for (int i = 0; i < 9; i++){
+      int* col = (int*) calloc (10, sizeof(int));
+      int* row = (int*) calloc (10, sizeof(int));
+      for (int j = 0; j < 9; j++){
+         if (n->sudo[i][j] != 0){
+            if (col[n->sudo[i][j]] == 1){
                return 0;
             }
-            aux[num] = 1;
+            col[n->sudo[i][j]] = 1;
          }
-      }
-   }
-   //validar columnas
-   for(int i = 0; i < 9; i++){
-      int aux[10] = {0};
-      for(int j=0; j < 9; j++){
-         int num = n->sudo[j][i];
-         if(num != 0){
-            if(aux[num])
-            {
+         if (n->sudo[j][i] != 0){
+            if (row[n->sudo[j][i]] == 1){
                return 0;
             }
-            aux[num] = 1;
+            row[n->sudo[j][i]] = 1;
          }
       }
    }
