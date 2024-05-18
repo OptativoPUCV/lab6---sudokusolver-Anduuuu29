@@ -93,8 +93,8 @@ List* get_adj_nodes(Node* n){
                adj->sudo[i][j]=k;
                if(is_valid(adj))
                   pushBack(list_adj,adj);
+               k++;
             }
-            k++;
          }
       }
    return list_adj;
