@@ -127,7 +127,6 @@ Node* DFS(Node* initial, int* cont){
             push(S,aux);
             aux=next(list_adj);
          }
-      free(n);
    }
    
   return NULL;
