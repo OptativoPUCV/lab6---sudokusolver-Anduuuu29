@@ -79,3 +79,13 @@ Sat 18 May 2024 08:59:59 PM UTC:
  1 file changed, 18 insertions(+)
  tests:  0|0
 e46db41
+Sat 18 May 2024 09:00:27 PM UTC: 
+ sudoku.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:131:16: error: void value not ignored as it ought to be
+  131 |       Node* n= pop(S);
+      |                ^~~
+Compilation failed
+3210949
